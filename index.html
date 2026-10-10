@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Explore inherited and synthesized attribute dependencies through animated legal flows, proxy paths, cycles, and five original GATE-style MCQs.">
+  <meta property="og:title" content="Attribute Flow">
+  <meta property="og:description" content="An interactive study of attribute-grammar dependencies, proxy paths, and evaluation order.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://raghav-56.github.io/attribute-flow/">
+  <title>Attribute Flow · Attribute grammars, animated</title>
+  <link rel="canonical" href="https://raghav-56.github.io/attribute-flow/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css?v=1">
+  <script src="./theme.js?v=1"></script>
+  <script src="./app.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#explore">Skip to the visualization</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-brand">
+        <span class="eyebrow">Compiler design</span>
+        <h1>Attribute Flow<span class="brand-dot" aria-hidden="true">.</span></h1>
+      </div>
+      <nav class="site-nav" aria-label="Site navigation">
+        <a href="#challenge">Quiz</a>
+        <a href="https://github.com/Raghav-56/attribute-flow">Source</a>
+        <button class="btn btn-ghost" type="button" data-theme-toggle>Theme: System</button>
+      </nav>
+    </header>
+    <main>
+      <div id="attribute-flow-09">
+<section class="af-explorer" id="explore" aria-labelledby="explorer-title">
+  <div class="af-heading">
+    <h2 id="explorer-title">Local rules, shared reachability</h2>
+    <span class="text-small text-muted">General SDD · same-node dependencies allowed</span>
+  </div>
+  <div class="viz-controls" aria-label="Dependency view">
+    <button class="btn" type="button" data-mode="direct" aria-pressed="true">Direct rules</button>
+    <button class="btn" type="button" data-mode="proxy" aria-pressed="false">Proxy equivalence</button>
+    <button class="btn" type="button" data-mode="cycle" aria-pressed="false">Cycle</button>
+  </div>
+  <svg class="af-map" role="img" aria-labelledby="af-title af-description">
+    <title id="af-title">Attribute dependencies around node N</title>
+    <desc id="af-description">N has a parent, two siblings, and two children. Dependency arrows point from an available attribute to the attribute computed from it. Inherited and synthesized attributes can exchange information through helpers at N, provided the resulting graph has no cycle.</desc>
+  </svg>
+  <div class="af-current" aria-live="polite" aria-atomic="true">
+    <span class="viz-badge" data-status>Direct dependency</span>
+    <span data-detail>Parent → N.i · rule at P</span>
+  </div>
+  <div class="af-bottom">
+    <div class="viz-controls" aria-label="Animation controls">
+      <button class="btn btn-primary" type="button" data-action="play"><span data-play-label>Play</span></button>
+      <button class="btn" type="button" data-action="step">Step</button>
+      <button class="btn btn-ghost" type="button" data-action="reset">Reset</button>
+    </div>
+    <span class="text-small text-muted tabular-nums" data-count>1 / 4</span>
+  </div>
+  <div class="af-legend text-small">
+    <span><span class="af-key af-inherited"></span>Inherited</span>
+    <span><span class="af-key af-synthesized"></span>Synthesized</span>
+    <span class="text-muted">Arrow = prerequisite → dependent</span>
+  </div>
+  <p class="af-explanation">Same-node helpers let child information reach an inherited attribute and parent or sibling information reach a synthesized attribute. In a general SDD, inherited attributes are defined at N's parent; synthesized attributes are defined at N. Helpers add evaluation dependencies, and a directed cycle prevents a topological evaluation order. This equivalence of information paths does not erase S-attributed or L-attributed restrictions. <a href="https://cs.nyu.edu/~gottlieb/courses/2000s/2008-09-fall/compilers/lectures/lecture-08.html">Read the source definitions.</a></p>
+</section>
+  <section class="af-challenge" id="challenge" aria-labelledby="challenge-title">
+    <div class="af-heading"><h2 id="challenge-title">Test the distinction</h2><span class="text-small text-muted">5 original GATE-style MCQs</span></div>
+    <div class="af-quiz-body" data-quiz-body></div>
+    <div class="af-feedback" data-quiz-feedback aria-live="polite" aria-atomic="true"></div>
+    <div class="af-bottom">
+      <div class="viz-controls" aria-label="Quiz controls">
+        <button class="btn btn-primary" type="button" data-quiz-check>Check answer</button>
+        <button class="btn" type="button" data-quiz-next disabled>Next</button>
+        <button class="btn btn-ghost" type="button" data-quiz-restart>Restart quiz</button>
+      </div>
+      <span class="text-small text-muted tabular-nums" data-quiz-score>First attempt: 0 / 0</span>
+    </div>
+  </section>
+
+</div>
+      <noscript><div class="no-script">Enable JavaScript to play the animation and answer the interactive quiz.</div></noscript>
+    </main>
+    <footer class="site-footer">
+      <span>General SDDs · legal local dependencies · acyclic evaluation</span>
+      <span>By <a href="https://github.com/Raghav-56">Raghav Gupta</a></span>
+    </footer>
+  </div>
+</body>
+</html>
